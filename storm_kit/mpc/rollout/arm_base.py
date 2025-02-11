@@ -163,8 +163,8 @@ class ArmBase(RolloutBase):
 
         if(no_coll == True and horizon_cost == False):
             return cost
-        if(self.exp_params['cost']['manipulability']['weight'] > 0.0):
-            cost += self.manipulability_cost.forward(J_full)
+        # if(self.exp_params['cost']['manipulability']['weight'] > 0.0):
+        #     cost += self.manipulability_cost.forward(J_full)
         
         
         if(horizon_cost):

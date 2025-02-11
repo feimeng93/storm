@@ -112,7 +112,7 @@ def get_stomp_cov(horizon, d_action,
     #print(R)
     #print(torch.det(R))
     
-    cov = torch.inverse(R)
+    cov = torch.inverse(R.to('cpu'))
     cov = cov / torch.max(torch.abs(cov))
     #plt.imshow(cov)
     #plt.show()

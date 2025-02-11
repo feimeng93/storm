@@ -48,9 +48,12 @@ class ManipulabilityCost(nn.Module):
         
 
         with torch.cuda.amp.autocast(enabled=False):
-            
             J_J_t = torch.matmul(jac_batch, jac_batch.transpose(-2,-1))
-            score = torch.sqrt(torch.det(J_J_t))
+            try:
+                determinant = torch.det(J_J_t)
+                score = torch.sqrt(determinant)
+            except:
+                score = torch.zeros((jac_batch.shape[0],), device=inp_device, dtype=self.float_dtype)
         score[score != score] = 0.0
         
         

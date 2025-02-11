@@ -42,6 +42,7 @@ dependencies:
   - quaternion
   - pip:
     - pytorch3d
+    - mkl
     - ghalton
     - argcomplete
     - click

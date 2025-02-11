@@ -77,6 +77,8 @@ class ArmTask(BaseTask):
             mppi_params['init_mean'] = init_action * 0.0 # device=device)
         elif(exp_params['control_space'] == 'pos'):
             mppi_params['init_mean'] = init_action
+        elif(exp_params['control_space'] == 'vel'):
+            mppi_params['init_mean'] = init_action
         mppi_params['rollout_fn'] = rollout_fn
         mppi_params['tensor_args'] = self.tensor_args
         controller = MPPI(**mppi_params)
