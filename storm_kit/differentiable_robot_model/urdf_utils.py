@@ -160,6 +160,7 @@ class URDFRobotModel(object):
             body_params['com'] = com
             body_params['inertia_mat'] = inert_mat
         else:
+            print("!!!!!!!inerital information not found for link: {}".format(link.name))
             body_params['mass'] = None
             body_params['com'] = None
             body_params['inertia_mat'] = None
