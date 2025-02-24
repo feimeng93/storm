@@ -12,7 +12,7 @@
       <inertia ixx="0.004622" ixy="9E-06" ixz="6E-05" iyy="0.004495" iyz="9E-06" izz="0.002079"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="-1.5708 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="base_link.STL"/>
       </geometry>
@@ -34,7 +34,7 @@
       <inertia ixx="0.00457" ixy="1E-06" ixz="2E-06" iyy="0.004831" iyz="0.000448" izz="0.001409"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="-1.5708 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="shoulder_link.STL"/>
       </geometry>
@@ -49,7 +49,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="joint_1" type="continuous">
+  <joint name="joint_1" type="revolute">
     <origin rpy="3.1416 2.7629E-18 -4.9305E-36" xyz="0 0 0.15643"/>
     <parent link="base_link"/>
     <child link="shoulder_link"/>
@@ -63,7 +63,7 @@
       <inertia ixx="0.011088" ixy="5E-06" ixz="0" iyy="0.001072" iyz="-0.000691" izz="0.011255"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="-1.5708 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="half_arm_1_link.STL"/>
       </geometry>
@@ -92,7 +92,7 @@
       <inertia ixx="0.010932" ixy="0" ixz="-7E-06" iyy="0.011127" iyz="0.000606" izz="0.001043"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="-1.5708 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="half_arm_2_link.STL"/>
       </geometry>
@@ -107,7 +107,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="joint_3" type="continuous">
+  <joint name="joint_3" type="revolute">
     <origin rpy="-1.5708 1.2326E-32 -2.9122E-16" xyz="0 -0.21038 -0.006375"/>
     <parent link="half_arm_1_link"/>
     <child link="half_arm_2_link"/>
@@ -121,7 +121,7 @@
       <inertia ixx="0.008147" ixy="-1E-06" ixz="0" iyy="0.000631" iyz="-0.0005" izz="0.008316"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="-1.5708 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="forearm_link.STL"/>
       </geometry>
@@ -150,7 +150,7 @@
       <inertia ixx="0.001596" ixy="0" ixz="0" iyy="0.001607" iyz="0.000256" izz="0.000399"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="-1.5708 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="spherical_wrist_1_link.STL"/>
       </geometry>
@@ -165,7 +165,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="joint_5" type="continuous">
+  <joint name="joint_5" type="revolute">
     <origin rpy="-1.5708 2.2204E-16 -6.373E-17" xyz="0 -0.20843 -0.006375"/>
     <parent link="forearm_link"/>
     <child link="spherical_wrist_1_link"/>
@@ -179,7 +179,7 @@
       <inertia ixx="0.001641" ixy="0" ixz="0" iyy="0.00041" iyz="-0.000278" izz="0.001641"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="-1.5708 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="spherical_wrist_2_link.STL"/>
       </geometry>
@@ -208,7 +208,7 @@
       <inertia ixx="0.000587" ixy="3E-06" ixz="3E-06" iyy="0.000369" iyz="-0.000118" izz="0.000609"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="-1.5708 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="bracelet_no_vision_link.STL"/>
       </geometry>
@@ -223,7 +223,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="joint_7" type="continuous">
+  <joint name="joint_7" type="revolute">
     <origin rpy="-1.5708 -5.5511E-17 9.6396E-17" xyz="0 -0.10593 -0.00017505"/>
     <parent link="spherical_wrist_2_link"/>
     <child link="bracelet_link"/>

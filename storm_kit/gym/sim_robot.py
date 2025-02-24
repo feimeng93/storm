@@ -190,8 +190,7 @@ class RobotSim():
 
 
     def set_robot_state(self, q_des, qd_des, env_handle, robot_handle):
-        robot_dof_states = copy.deepcopy(self.gym.get_actor_dof_states(env_handle, robot_handle,
-                                                                       gymapi.STATE_ALL))
+        robot_dof_states = copy.deepcopy(self.gym.get_actor_dof_states(env_handle, robot_handle, gymapi.STATE_ALL))
 
         for i in range(len(robot_dof_states['pos'])):
             robot_dof_states['pos'][i] = q_des[i]

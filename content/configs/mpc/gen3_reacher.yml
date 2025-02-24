@@ -35,6 +35,7 @@ cmd_filter_coeff: {'position':1.0, 'velocity':1.0, 'acceleration':0.0}
 model:
   # any link that is not specified as learnable will be initialized from urdf
   urdf_path: "urdf/kinova_description/gen3.urdf"
+  # urdf_path: "urdf/kinova/kinova_gen3_7dof.urdf"
   learnable_rigid_body_config:
     learnable_links: []
   name: "gen3"
@@ -55,6 +56,7 @@ model:
   
   robot_collision_params:
     urdf: "urdf/kinova_description/gen3.urdf"
+    # urdf: "urdf/kinova/kinova_gen3_7dof.urdf"
     sample_points: 100
     link_objs: ['half_arm_1_link', 'half_arm_2_link','forearm_link','spherical_wrist_1_link', 'spherical_wrist_2_link','bracelet_link']
     #link_objs: ['panda_link6']

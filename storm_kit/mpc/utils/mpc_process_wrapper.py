@@ -74,6 +74,7 @@ class ControlProcess(object):
         self.controller = controller
         self.control_dt = control_dt
         self.prev_mpc_tstep = 0.0
+
     def predict_next_state(self, t_step, curr_state):
         # predict next state
         # given current t_step, integrate to t_step+mpc_dt
@@ -119,9 +120,10 @@ class ControlProcess(object):
         self.top_trajs = self.controller.top_trajs
         self.command = command
 
-        command_buffer, command_tstep_buffer = self.truncate_command(self.command[0], t_step, self.command_tstep)
+        command_buffer, command_tstep_buffer = self.truncate_command(self.command[0], t_step, self.command_tstep) #([30,7])
         
-        act = self.controller.rollout_fn.dynamics_model.integrate_action_step(command_buffer[0], self.control_dt)
+        act = self.controller.rollout_fn.dynamics_model.integrate_action_step(command_buffer[0], self.control_dt) #([7,])
+
         return act, command_tstep_buffer, self.command[1], command_buffer
 
     def get_command(self, t_step, curr_state, debug=False, control_dt=0.01):

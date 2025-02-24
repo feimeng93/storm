@@ -102,7 +102,6 @@ class RobotWorldCollisionPrimitive(RobotWorldCollision):
 
         w_link_spheres = self.robot_coll.get_batch_robot_link_spheres()
         
-                
         
         n_links = len(w_link_spheres)
 

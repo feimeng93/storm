@@ -99,6 +99,8 @@ class Controller(ABC):
         self.hotstart = hotstart
         self.seed_val = seed
         self.trajectories = None
+        # self.risk_filter = RiskFilter()
+
         
     @abstractmethod
     def _get_action_seq(self, mode='mean'):
@@ -253,6 +255,9 @@ class Controller(ABC):
                     # check if converged
                     if self.check_convergence():
                         break
+        
+        # act = self.risk_filter.step_risk_check(act)
+        
         self.trajectories = trajectory
         #calculate best action
         # curr_action = self._get_next_action(state, mode=self.sample_mode)

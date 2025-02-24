@@ -27,6 +27,7 @@ from ..cost import DistCost, PoseCost, ProjectedDistCost, JacobianCost, ZeroCost
 from ..cost.bound_cost import BoundCost
 from ..cost.manipulability_cost import ManipulabilityCost
 from ..cost import CollisionCost, VoxelCollisionCost, PrimitiveCollisionCost
+# from ..cost import SosCollisionCost
 from ..model import URDFKinematicModel
 from ...util_file import join_path, get_assets_path
 from ...differentiable_robot_model.coordinate_transform import matrix_to_quaternion, quaternion_to_matrix
@@ -123,6 +124,9 @@ class ArmBase(RolloutBase):
         if(exp_params['cost']['primitive_collision']['weight'] > 0.0):
             self.primitive_collision_cost = PrimitiveCollisionCost(world_params=world_params, robot_params=robot_params, tensor_args=self.tensor_args, **self.exp_params['cost']['primitive_collision'])
 
+        # if exp_params['cost']['sos_collision']['weight'] > 0.0:
+        #     self.sos_collision_cost = SosCollisionCost(world_params=world_params, robot_params=robot_params, tensor_args=self.tensor_args, **exp_params['cost']['sos_collision'])
+
         if(exp_params['cost']['robot_self_collision']['weight'] > 0.0):
             self.robot_self_collision_cost = RobotSelfCollisionCost(robot_params=robot_params, tensor_args=self.tensor_args, **self.exp_params['cost']['robot_self_collision'])
 
@@ -206,6 +210,9 @@ class ArmBase(RolloutBase):
             if self.exp_params['cost']['voxel_collision']['weight'] > 0:
                 coll_cost = self.voxel_collision_cost.forward(link_pos_batch, link_rot_batch)
                 cost += coll_cost
+            # if self.exp_params['cost']['sos_collision']['weight'] > 0:
+            #     coll_cost = self.sos_collision_cost.risk_veri(link_pos_batch, link_rot_batch)
+            #     cost += coll_cost
 
         
         return cost

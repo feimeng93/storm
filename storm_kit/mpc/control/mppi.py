@@ -113,7 +113,7 @@ class MPPI(OLGaussianMPC):
         vis_seq = trajectories[self.visual_traj].to(**self.tensor_args)
         actions = trajectories["actions"].to(**self.tensor_args)
         w = self._exp_util(costs, actions)
-        
+        # ([500]) considering for only the first time step
         #Update best action
         best_idx = torch.argmax(w)
         self.best_idx = best_idx

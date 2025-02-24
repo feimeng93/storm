@@ -40,7 +40,6 @@ class Gym(object):
             physics_engine = gymapi.SIM_FLEX
         # create physics engine struct
         sim_engine_params = gymapi.SimParams()
-        
         # find params in kwargs and fill up here:
         sim_engine_params = load_struct_from_dict(sim_engine_params, sim_params)
         self.headless = headless

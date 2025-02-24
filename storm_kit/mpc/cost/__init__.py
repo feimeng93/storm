@@ -33,6 +33,7 @@ from .ee_vel_cost import EEVelCost
 from .collision_cost import CollisionCost
 from .primitive_collision_cost import PrimitiveCollisionCost
 from .voxel_collision_cost import VoxelCollisionCost
+# from .sos_collision_cost import SosCollisionCost
 
 try:
     True
