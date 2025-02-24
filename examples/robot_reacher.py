@@ -321,7 +321,7 @@ if __name__ == '__main__':
     
     # instantiate empty gym:
     parser = argparse.ArgumentParser(description='pass args')
-    parser.add_argument('--robot', type=str, default='franka', help='Robot to spawn')
+    parser.add_argument('--robot', type=str, default='gen3', help='Robot to spawn')
     parser.add_argument('--cuda', action='store_true', default=True, help='use cuda')
     parser.add_argument('--headless', action='store_true', default=False, help='headless gym')
     parser.add_argument('--control_space', type=str, default='acc', help='Robot to spawn')
